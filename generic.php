@@ -127,7 +127,7 @@
 	</header> <!-- .cd-main-header -->
 
 	<main class="cd-main-content">
-		<nav class="cd-side-nav">
+	<!--	<nav class="cd-side-nav">
 			<ul>
 				<li class="cd-label">Main Menu</li>
 				<li class="has-children overview">
@@ -164,226 +164,50 @@
 				<li class="cd-label">Action</li>
 				<li class="action-btn"><a href="#0">+ Button</a></li>
 			</ul>
-		</nav>
+		</nav>-->
 
 		<div class="content-wrapper">
 			<h1><span style="font-weight:bold">Generic Profiling</span></h1>
 
-			<form name="myform" id="myForm">
 			
- <!-- <select id="countySel" size="1">
-        <option value="" selected="selected">-- Select Country --</option>
-    </select>
-	
-     <br>
-    <br>
-  
-    <select id="stateSel" size="1">
-        <option value="" selected="selected">-- Select State--</option>
-    </select>
-	
-    <br>
-    <br>  
-	
-    <select id="citySel" size="1">
-        <option value="" selected="selected">-- Select District--</option>
-    </select>
-
-    <br>
-    <br>
-	
-	<div class="selectBox" onclick="showCheckboxes()">
-    <div id="checkboxes">
-	<select id="zipSel" size="1">
-        <option value="" selected="selected">-- Select Filter--</option>
-    </select>
-	</div>
-	</div>
-		<div class = "row">
-	<div class="col-lg-4" style = "margin-top: 15px;">
-	<select id="zipSel" size="1"  style="visibility:hidden">
-        <option value="" selected="selected">-- Select Demographics--</option>
-    </select>
-	</div>
-	<div class="col-lg-4" style = "margin-top: 15px;">
-	<select id="zipSel" size="1"  style="visibility:hidden">
-        <option value="" selected="selected">-- Select Education--</option>
-    </select>
-	</div>
-	<div class="col-lg-4" style = "margin-top: 15px;">
-	<select id="zipSel" size="1"  style="visibility:hidden">
-        <option value="" selected="selected">-- Select Health--</option>
-    </select>
-	</div>
-	<div class="col-lg-4" style = "margin-top: 15px;">
-	<select id="zipSel" size="1"  style="visibility:hidden">
-        <option type= "checkbox" value="" selected="selected">-- Select Agriculture--</option>
-    </select>
-	</div>
-	<div class="col-lg-4" style = "margin-top: 15px;">
-	<select id="zipSel" size="1"  style="visibility:hidden">
-        <option value="" selected="selected">-- Select Water--</option>
-    </select>
-	</div>
-	</div>
-</form>-->
-		<form>
+			<form method="POST" action="filter.php">
+				<h3>Select the Area to work in:</h3><br>
+				<select name="states" onchange="showUser(this.value)">
+				  <option value="">--select state--</option>
+				  <option value="Maharashtra">Maharashtra</option>
+				  <option value="Gujrat">Gujrat</option>
+				  <option value="Rajasthan">Rajasthan</option>
+				  <option value="Karnatka">Karnatka</option>
+				  </select>
 			
-		<select name="states" onchange="showUser(this.value)">
-		  <option value="">--select state--</option>
-		  <option value="Maharashtra">Maharashtra</option>
-		  <option value="Gujrat">Gujrat</option>
-		  <option value="Rajasthan">Rajasthan</option>
-		  <option value="Karnatka">Karnatka</option>
-		  </select>
-		  <br>
+			
+					<br><br>
 
-		  
+			
+				<div id="txtHint"><h3 id='heading'></h3></div>
+			
+				<div id="txtHint1"><h3 id='heading1'></h3></div>
+				<br>
 
-		<br>
-		<div id="txtHint"><h3 id='heading'></h3></div>
-		<br>
-		<div id="txtHint1"><h3 id='heading1'></h3></div>
+				<h3>Filters</h3><br>
+				<h5>Poplation:</h5>
+				Range: <input type="number" name="pop_lower" min="0" step="100" max="66062" value="0"> to <input type="number" name="pop_higher" min="0" value="0" max="66062" step="100"><br>
+				<br>
+				<h5>Caste Distribution:</h5>
+				<input type="radio" name="caste" value="1"> Unicaste( >90% Popuulation of Same caste )<br>
+				<input type="radio" name="caste" value="0"> Multicaste ( < 90% Population of Same Caste )<br><br>
+
+				<h5>Road Connectivity:</h5>
+				<input type="radio" name="road" value="1"> Pakka Road<br>
+				<input type="radio" name="road" value="0"> Kaccha Road<br><br>
+
+				<input type="submit" value="Go >">
+
+
 		</form>
 
 			
-	<!--		
-		
-		<div class="dropdown" style = "margin-top: 15px;" >
-<button onclick="myFunction3()" class="dropbtn" style="visibility:hidden">Select Filter</button>
-  <div id="myDropdown3" class="dropdown-content">
-    <input type="text" placeholder="Search.." id="myInput3" onkeyup="filterFunction3()">
-    <a href="#about">Demographics</a>
-    <a href="#base">Education</a>
-    <a href="#blog">Health</a>
-    <a href="#contact">Water</a>
-    <a href="#custom">Agriculture</a>
-    <a href="#support">Sanitation and Waste Management</a>
-   
-  </div>
-</div>
-
-
-<BR>
 	
-<div class="container-fluid">
-	<div class="row">	
-	<div class="col-lg-4" style="visibility:hidden">		
-	<h4> Demographics </h4>
-	<select id="demographics" multiple="yes" >
-		<option value="1">Total Households</option>
-        <option value="2">Total Population</option>
-		<option value="3">Total Male Population</option>
-		<option value="4">Total Female Population</option>
-        <option value="5">Total Scheduled Caste Population</option>
-		<option value="6">Total Scheduled Caste Male Population</option>
-		<option value="7">Total Scheduled Caste Female Population</option>
-		<option value="8">Total Scheduled Tribes Population</option>
-		<option value="9">Total Scheduled Tribes Male Population</option>
-		<option value="10">Total Scheduled Caste Female Population</option>
-		
-</select>
-</div>
-<div class="col-lg-4" style="visibility:hidden">
-<h4> Health </h4>
-<select id="health" multiple="yes">
-        <option value="1">Community Health Centres</option>
-        <option value="2">Public Health Centres</option>
-    </select>
-    </div>
-	
-<div class="col-lg-4" style="visibility:hidden">
-<h4> Education </h4>
-<select id="edu" multiple="yes">
-        <option value="1">Anganwadi</option>
-        <option value="2">Pre-Primary School</option>
-		<option value="3">Primary School</option>
-		<option value="4">Secondary School</option>
-		<option value="5">Senior Secondary School</option>
-		<option value="6">Literacy Rate</option>
-    </select>
-	</div>
-
-	
-
-	<div class="col-lg-4" style="visibility:hidden">
-	<h4> Water </h4>
-	<select id="water" multiple="yes">
-       <option value="1">Tap Water-Treated</option>
-        <option value="2">Tap Water-Treated Functioning All round the year</option>
-		<option value="3">Tap Water-Treated Functioning in Summer months (April-September) </option>
-		<option value="4">Tap Water Untreated</option>
-        <option value="5">Tap Water Untreated Functioning All round the year</option>
-		<option value="6">Tap Water Untreated Functioning in Summer months (April-September)</option>
-		<option value="7">Covered Well </option>
-		<option value="8">Covered Well Functioning All round the year </option>
-		<option value="9">Covered Well Functioning in Summer months (April-September) </option>
-		<option value="10">Uncovered  Well </option>
-		<option value="11">Uncovered  Well Functioning All round the year </option>
-		<option value="12">Uncovered  Well Functioning in Summer months (April-September) </option>
-		<option value="13">Hand Pump </option>
-		<option value="14">Hand Pump Functioning All round the year </option>
-		<option value="15">Hand Pump Functioning in Summer months (April-September)</option>
-		<option value="16">Tube Wells/Borehole </option>
-		<option value="17">Tube Wells/Borehole Functioning All round the year </option>
-		<option value="18">Tube Wells/Borehole Functioning in Summer months (April-September) </option>
-	
-    </select>
-	</div>
-	
-	<div class="col-lg-4" style="visibility:hidden">
-<h4> Agriculture </h4>
-<select id="agri" multiple="yes">
-        <option value="1">Land Area</option>
-        <option value="2">Cultivator worker Population</option>
-		<option value="3">Agricultural worker population</option>
-		<option value="4">Type of crops</option>
-		
-    </select>
-	</div>
-	
-	<div class="col-lg-4" style="visibility:hidden">
-<h4> Sanitation and Waste Management </h4>
-<select id="sanitation" multiple="yes">
-        <option value="1">Close Drainage</option>
-        <option value="2">Open Drainage</option>
-		<option value="3">No drainage</option>
-		<option value="4">Open Pucca Drainage Covered with Tiles Slabs</option>
-		<option value="5">Open Pucca Drainage Uncovered </option>
-		<option value="6">Open Kuccha Drainage </option>
-		<option value="7">Whether Drain water is discharged directly into water bodies or to sewar plant (For Water Bodies-1/Sewar Plants-2) </option>
-		<option value="8">Is the Area Covered under Total Sanitation Campaign (TSC)? </option>
-		<option value="9">Community Toilet Complex (including Bath) for General Public </option>
-		<option value="10">Community Toilet Complex (excluding Bath) for General Public </option>
-		
-    </select>
-	</div>
-	
-	
-	<div class="col-lg-4">
-	</div>
-	<div class="col-lg-4">
-	</div>
-	<div class="col-lg-4" style = "margin-top: 50px;visibility:hidden;"  >
-    <input type="button" id="btnSelected" value="Submit" onclick="generate_table()">
-</div>
-</div>
-</div>
-</form>
-	
-<table id="t01">
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td> 
-    <td>94</td>
-  </tr>
-</table>
- -->
 		</div> <!-- .content-wrapper -->
 	</main> <!-- .cd-main-content -->
 	
@@ -477,135 +301,6 @@ window.onload = function () {
 
 
 	
-<!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"
-        rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
- 
-    <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"
-        type="text/javascript"></script>
-    <script type="text/javascript">
-	
-        $(function () {
-            $('#demographics').multiselect({
-                includeSelectAllOption: true
-            });
-            $('#btnSelected').click(function () {
-                var selected = $("#demographics option:selected");
-                var message = "";
-                selected.each(function () {
-                    message += $(this).text() + " " + $(this).val() + "\n";
-                });
-                alert(message);
-            });
-        });
-    
-        $(function () {
-            $('#health').multiselect({
-                includeSelectAllOption: true
-            });
-            $('#btnSelected').click(function () {
-                var selected = $("#health option:selected");
-                var message1 = "";
-                selected.each(function () {
-                    message1 += $(this).text() + " " + $(this).val() + "\n";
-                });
-                alert(message1);
-            });
-        });
-  
-        $(function () {
-            $('#edu').multiselect({
-                includeSelectAllOption: true
-            });
-            $('#btnSelected').click(function () {
-                var selected = $("#edu option:selected");
-                var message2 = "";
-                selected.each(function () {
-                    message2 += $(this).text() + " " + $(this).val() + "\n";
-                });
-                alert(message2);
-            });
-        });
-		
-		$(function () {
-            $('#water').multiselect({
-                includeSelectAllOption: true
-            });
-            $('#btnSelected').click(function () {
-                var selected = $("#water option:selected");
-                var message3 = "";
-                selected.each(function () {
-                    message3 += $(this).text() + " " + $(this).val() + "\n";
-                });
-                alert(message3);
-            });
-        });
-		
-		$(function () {
-            $('#agri').multiselect({
-                includeSelectAllOption: true
-            });
-            $('#btnSelected').click(function () {
-                var selected = $("#agri option:selected");
-                var message4 = "";
-                selected.each(function () {
-                    message4 += $(this).text() + " " + $(this).val() + "\n";
-                });
-                alert(message4);
-            });
-        });
-		
-		$(function () {
-            $('#sanitation').multiselect({
-                includeSelectAllOption: true
-            });
-            $('#btnSelected').click(function () {
-                var selected = $("#sanitation option:selected");
-                var message5 = "";
-                selected.each(function () {
-                    message5 += $(this).text() + " " + $(this).val() + "\n";
-                });
-                alert(message5);
-            });
-        });
-		
-    
-function generate_table() {
-  // get the reference for the body
-  var body = document.getElementsByTagName("body")[0];
- 
-  // creates a <table> element and a <tbody> element
-  var tbl = document.createElement("table");
-  var tblBody = document.createElement("tbody");
- 
-  // creating all cells
-  for (var i = 0; i < 2; i++) {
-    // creates a table row
-    var row = document.createElement("tr");
- 
-    for (var j = 0; j < 2; j++) {
-      // Create a <td> element and a text node, make the text
-      // node the contents of the <td>, and put the <td> at
-      // the end of the table row
-      var cell = document.createElement("td");
-      var cellText = document.createTextNode("cell in row "+i+", column "+j);
-      cell.appendChild(cellText);
-      row.appendChild(cell);
-    }
- 
-    // add the row to the end of the table body
-    tblBody.appendChild(row);
-  }
- 
-  // put the <tbody> in the <table>
-  tbl.appendChild(tblBody);
-  // appends <table> into <body>
-  body.appendChild(tbl);
-  // sets the border attribute of tbl to 2;
-  tbl.setAttribute("border", "2");
-}
-</script> -->
 
 	
 <!--<script src="js/jquery-2.1.4.js"></script>-->

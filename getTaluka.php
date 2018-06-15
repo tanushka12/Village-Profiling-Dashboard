@@ -33,7 +33,7 @@ if($result==false)
     echo "No Results";
 }
 //echo "<h5>Select Sub-District:</h5>";
-echo "<select name='districts'>";
+echo "<select name='subdistricts'>";
 echo "<option>--select taluka--</option>";
 while($row = mysqli_fetch_array($result)) {
     
@@ -42,7 +42,6 @@ while($row = mysqli_fetch_array($result)) {
   echo "<option value='sub_district' >" . $sub_district . "</option>";
   
 }
-echo "<br><br>";
 echo "</select>";
 mysqli_close($con);
 ?>

@@ -33,6 +33,7 @@ if($result==false)
     echo "No Results";
 }
 //echo "<h5>District</h5>";
+
 echo "<select name='districts' onchange='showTaluka(this.value)'>";
 echo "<option>--select district--</option>";
 while($row = mysqli_fetch_array($result)) {
