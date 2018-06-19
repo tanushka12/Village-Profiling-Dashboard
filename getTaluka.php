@@ -39,7 +39,7 @@ while($row = mysqli_fetch_array($result)) {
     
   
   $sub_district=$row['sub_district'];
-  echo "<option value='sub_district' >" . $sub_district . "</option>";
+  echo "<option value='$sub_district' >" . $sub_district . "</option>";
   
 }
 echo "</select>";

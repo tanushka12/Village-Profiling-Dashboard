@@ -195,11 +195,11 @@
 				<br>
 				<h5>Caste Distribution:</h5>
 				<input type="radio" name="caste" value="1"> Unicaste( >90% Popuulation of Same caste )<br>
-				<input type="radio" name="caste" value="0"> Multicaste ( < 90% Population of Same Caste )<br><br>
+				<input type="radio" name="caste" value="2"> Multicaste ( < 90% Population of Same Caste )<br><br>
 
 				<h5>Road Connectivity:</h5>
 				<input type="radio" name="road" value="1"> Pakka Road<br>
-				<input type="radio" name="road" value="0"> Kaccha Road<br><br>
+				<input type="radio" name="road" value="2"> Kaccha Road<br><br>
 
 				<input type="submit" value="Go >">
 

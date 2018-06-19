@@ -35,9 +35,9 @@ Responsive Tabbed Navigation - by CodyHouse.co
 
 .cd-tabs {
   position: relative;
-  width: 90%;
-  max-width: 960px;
-  margin: 2em auto;
+  width: 106%;
+  max-width: 1600px;
+  margin: 0em auto;
 }
 
 @supports (background: linear-gradient(to left, #000, #000)) or (background: -webkit-linear-gradient(to left, #000, #000)) {
@@ -114,7 +114,7 @@ Responsive Tabbed Navigation - by CodyHouse.co
 }
 
 .cd-tabs__navigation li {
-  float: left;
+ float: left;
 }
 
 .cd-tabs__navigation a {
@@ -123,10 +123,10 @@ Responsive Tabbed Navigation - by CodyHouse.co
   height: 60px;
   width: 60px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   font-weight: 700;
   color: #c3c2b9;
-  padding-top: 35px;
+  padding-top: 10px;
 }
 
 .cd-tabs__navigation a:hover {
